@@ -1,9 +1,9 @@
 /**
+ * @author Hongkun Yi
  * CodingBat Practice Problem: Array-1 front11
  * Given 2 int arrays, a and b, of any length, return a new array with the first element of each array.
  * If either array is length 0, ignore that array.
  * Source: https://codingbat.com/prob/p128270
- * @author Hongkun Yi
  */
 
 import java.util.Arrays;
