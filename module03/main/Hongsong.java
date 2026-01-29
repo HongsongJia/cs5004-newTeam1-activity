@@ -1,6 +1,5 @@
-@author HongsongJia
-
 /**
+ *  @author HongsongJia
  *  LeetCode25 Reverse Nodes in k-Group.
  *  Given the head of a linked list, reverse the nodes of the list k
  *  at a time, and return the modified list.
@@ -20,7 +19,7 @@
  */
 
 // Definition for singly-linked list.
-public class ListNode {
+    class ListNode {
     int val;
     ListNode next;
     ListNode() {}
