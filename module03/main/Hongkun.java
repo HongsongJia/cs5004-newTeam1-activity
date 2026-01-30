@@ -18,7 +18,7 @@
  * 
  * Source: https://codingbat.com/prob/p128270
  */
-public class Front11 {
+public class Hongkun{
     
     /**
      * Returns array with first element from each non-empty array.
@@ -27,7 +27,7 @@ public class Front11 {
      * @param b the second input array
      * @return array containing first elements from non-empty arrays
      */
-    public int[] front11(int[] a, int[] b) {
+    public int[] Hongkun(int[] a, int[] b) {
         // figure out how big the result array should be
         int size = 0;
         if (a.length > 0) size++;
