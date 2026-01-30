@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class HongkunTest {
-
+ 
     @Test
     void testFront11_Basic() {
         Hongkun solver = new Hongkun();
