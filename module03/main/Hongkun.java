@@ -1,3 +1,4 @@
+package module03;
 /**
  * @author Hongkun Yi
  * Date: 1/28, 2026
@@ -15,7 +16,7 @@
  * * Source: https://codingbat.com/prob/p128270
  */
 public class Hongkun {
-    
+
     /**
      * Returns array with first element from each non-empty array.
      * * @param a the first input array
@@ -27,23 +28,23 @@ public class Hongkun {
         int size = 0;
         if (a.length > 0) size++;
         if (b.length > 0) size++;
-        
+
         // make the array and fill it
         int[] result = new int[size];
         int index = 0;
-        
+
         if (a.length > 0) {
             result[index] = a[0];
             index++;
         }
-        
+
         if (b.length > 0) {
             result[index] = b[0];
         }
-        
+
         return result;
     }
-    
+
     /**
      * Helper method to print array contents.
      */
@@ -51,4 +52,19 @@ public class Hongkun {
         System.out.print("[");
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i]);
-            if (i
+            if (i < arr.length - 1) System.out.print(", ");
+        }
+        System.out.println("]");
+    }
+
+    public static void main(String[] args) {
+        Hongkun solver = new Hongkun();
+
+        // test the method
+        printArray(solver.front11(new int[]{1, 2, 3}, new int[]{7, 9, 8}));
+        printArray(solver.front11(new int[]{1}, new int[]{2}));
+        printArray(solver.front11(new int[]{1, 7}, new int[]{}));
+        printArray(solver.front11(new int[]{}, new int[]{5, 6}));
+        printArray(solver.front11(new int[]{}, new int[]{}));
+    }
+}
