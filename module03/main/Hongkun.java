@@ -1,5 +1,3 @@
-package module03;
-
 /**
  * @author Hongkun Yi
  * Date: 1/28, 2026
