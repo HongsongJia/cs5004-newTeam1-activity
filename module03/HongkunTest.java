@@ -1,12 +1,12 @@
 package module03;
 
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 public class HongkunTest {
- 
+
     @Test
-    void testFront11_Basic() {
+    public void testFront11_Basic() {
         Hongkun solver = new Hongkun();
         int[] inputA = {1, 2, 3};
         int[] inputB = {7, 9, 8};
@@ -18,7 +18,7 @@ public class HongkunTest {
     }
 
     @Test
-    void testFront11_EmptyA() {
+    public void testFront11_EmptyA() {
         Hongkun solver = new Hongkun();
         int[] inputA = {};
         int[] inputB = {2, 8};
@@ -30,7 +30,7 @@ public class HongkunTest {
     }
 
     @Test
-    void testFront11_EmptyB() {
+    public void testFront11_EmptyB() {
         Hongkun solver = new Hongkun();
         int[] inputA = {1, 7};
         int[] inputB = {};
@@ -42,26 +42,4 @@ public class HongkunTest {
     }
 
     @Test
-    void testFront11_BothEmpty() {
-        Hongkun solver = new Hongkun();
-        int[] inputA = {};
-        int[] inputB = {};
-        int[] expected = {};
-
-        int[] actual = solver.front11(inputA, inputB);
-
-        assertArrayEquals(expected, actual);
-    }
-    
-    @Test
-    void testFront11_SingleElements() {
-        Hongkun solver = new Hongkun();
-        int[] inputA = {1};
-        int[] inputB = {2};
-        int[] expected = {1, 2};
-        
-        int[] actual = solver.front11(inputA, inputB);
-        
-        assertArrayEquals(expected, actual);
-    }
-}
+    public void testFront11_BothEmpty() {
