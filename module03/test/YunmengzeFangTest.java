@@ -1,13 +1,13 @@
 /**
- * Test class for Zephyr makeEnds method.
+ * Test class for YunmengzeFang makeEnds method.
  * Demonstrates simple unit-style testing using main.
  */
 
-public class ZephyrTest {
+public class YunmengzeFangTest {
 
     public static void main(String[] args) {
 
-        Zephyr z = new Zephyr();
+        YunmengzeFang z = new YunmengzeFang();
 
         // Test case 1
         int[] test1 = {1, 2, 3};
