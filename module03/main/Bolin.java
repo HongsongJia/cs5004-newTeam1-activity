@@ -12,18 +12,18 @@ public boolean bolin(int start, int[] nums, int target) {
         return true;
     if (start >= nums.length)
         return false;
-    if (groupSum(start + 1, nums, target - nums[start]))
+    if (bolin(start + 1, nums, target - nums[start]))
         return true;
-    if (groupSum(start + 1, nums, target))
+    if (bolin(start + 1, nums, target))
         return true;
     return false;
 }
 
     public static void main(String[] args) {
-    GroupSum gs = new GroupSum();
+    Bolin gs = new Bolin();
 
     int[] nums = {2, 4, 8};
-    boolean result = gs.groupSum(0, nums, 10);
+    boolean result = gs.bolin(0, nums, 10);
     System.out.println(result);
 }
 }
