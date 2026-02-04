@@ -15,33 +15,37 @@ package module03;
  * front11([1, 7], []) → [1]
  * * Source: https://codingbat.com/prob/p128270
  */
-public class Hongkun {
+package module03;
 
-    /**
-     * Returns array with first element from each non-empty array.
-     * * @param a the first input array
-     * @param b the second input array
-     * @return array containing first elements from non-empty arrays
-     */
+import java.util.Arrays;
+
+public class Hongkun {
+    
     public int[] front11(int[] a, int[] b) {
-        // figure out how big the result array should be
         int size = 0;
         if (a.length > 0) size++;
         if (b.length > 0) size++;
-
-        // make the array and fill it
+        
         int[] result = new int[size];
         int index = 0;
-
         if (a.length > 0) {
             result[index] = a[0];
             index++;
         }
-
         if (b.length > 0) {
             result[index] = b[0];
         }
-
         return result;
     }
+    
+    public static void main(String[] args) {
+        Hongkun solution = new Hongkun();
+        
+        System.out.println(Arrays.toString(solution.front11(new int[]{1, 2, 3}, new int[]{7, 9, 8})));
+        System.out.println(Arrays.toString(solution.front11(new int[]{1}, new int[]{2})));
+        System.out.println(Arrays.toString(solution.front11(new int[]{1, 7}, new int[]{})));
+        System.out.println(Arrays.toString(solution.front11(new int[]{}, new int[]{2, 3})));
+        System.out.println(Arrays.toString(solution.front11(new int[]{}, new int[]{})));
+    }
+}
 
