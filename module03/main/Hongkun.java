@@ -45,26 +45,3 @@ public class Hongkun {
         return result;
     }
 
-    /**
-     * Helper method to print array contents.
-     */
-    public static void printArray(int[] arr) {
-        System.out.print("[");
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i]);
-            if (i < arr.length - 1) System.out.print(", ");
-        }
-        System.out.println("]");
-    }
-
-    public static void main(String[] args) {
-        Hongkun solver = new Hongkun();
-
-        // test the method
-        printArray(solver.front11(new int[]{1, 2, 3}, new int[]{7, 9, 8}));
-        printArray(solver.front11(new int[]{1}, new int[]{2}));
-        printArray(solver.front11(new int[]{1, 7}, new int[]{}));
-        printArray(solver.front11(new int[]{}, new int[]{5, 6}));
-        printArray(solver.front11(new int[]{}, new int[]{}));
-    }
-}
