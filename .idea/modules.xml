@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/cs5004-team2-activity.iml" filepath="$PROJECT_DIR$/.idea/cs5004-team2-activity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module03/module03.iml" filepath="$PROJECT_DIR$/module03/module03.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module04/module04.iml" filepath="$PROJECT_DIR$/module04/module04.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module05/module05.iml" filepath="$PROJECT_DIR$/module05/module05.iml" />
+    </modules>
+  </component>
+</project>
