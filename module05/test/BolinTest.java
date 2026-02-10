@@ -4,22 +4,16 @@ import static org.junit.Assert.*;
 public class BolinTest {
 
     @Test
-    public void testFactorialZero() {
-        assertEquals(0, Bolin.factorial(0));
+    public void testnoxZero() {
+        assertEquals("ab", Bolin.nox("ab"));
     }
 
     @Test
-    public void testFactorialOne() {
-        assertEquals(1, Bolin.factorial(1));
+    public void testnoxOne() {
+        assertEquals("cd", Bolin.nox("cxdxxxx"));
     }
-
     @Test
-    public void testFactorialFive() {
-        assertEquals(120, Bolin.factorial(5));
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void testFactorialNegative() {
-        Bolin.factorial(-1);
+    public void testnoxNull() {
+        assertEquals("", Bolin.nox("xxxx"));
     }
 }
