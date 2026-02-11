@@ -1,42 +1,50 @@
-import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Test;
+import java.util.Map;
+import java.util.HashMap;
+
 
 public class HongkunTest {
 
     @Test
-    public void testMakeAbbaExample1() {
-        Hongkun hk = new Hongkun();
-        assertEquals("HiByeByeHi", hk.makeAbba("Hi", "Bye"));
+    public void testMapShareWithAllKeys() {
+        Map<String, String> map = new HashMap<>();
+        map.put("a", "aaa");
+        map.put("b", "bbb");
+        map.put("c", "ccc");
+        Map<String, String> result = Hongkun.mapShare(map);
+        assertEquals("aaa", result.get("a"));
+        assertEquals("aaa", result.get("b"));
+        assertFalse(result.containsKey("c"));
     }
 
     @Test
-    public void testMakeAbbaExample2() {
-        Hongkun hk = new Hongkun();
-        assertEquals("YoAliceAliceYo", hk.makeAbba("Yo", "Alice"));
+    public void testMapShareWithoutKeyA() {
+        Map<String, String> map = new HashMap<>();
+        map.put("b", "xyz");
+        map.put("c", "ccc");
+        Map<String, String> result = Hongkun.mapShare(map);
+        assertEquals("xyz", result.get("b"));
+        assertFalse(result.containsKey("c"));
     }
 
     @Test
-    public void testMakeAbbaExample3() {
-        Hongkun hk = new Hongkun();
-        assertEquals("WhatUpUpWhat", hk.makeAbba("What", "Up"));
+    public void testMapShareWithExtraKeys() {
+        Map<String, String> map = new HashMap<>();
+        map.put("a", "aaa");
+        map.put("c", "meh");
+        map.put("d", "hi");
+        Map<String, String> result = Hongkun.mapShare(map);
+        assertEquals("aaa", result.get("a"));
+        assertEquals("aaa", result.get("b"));
+        assertEquals("hi", result.get("d"));
+        assertFalse(result.containsKey("c"));
     }
 
     @Test
-    public void testEmptyStrings() {
-        Hongkun hk = new Hongkun();
-        assertEquals("", hk.makeAbba("", ""));
-    }
-
-    @Test
-    public void testOneEmptyString() {
-        Hongkun hk = new Hongkun();
-        assertEquals("HiHi", hk.makeAbba("Hi", ""));
-        assertEquals("ByeBye", hk.makeAbba("", "Bye"));
-    }
-
-    @Test
-    public void testSingleCharacters() {
-        Hongkun hk = new Hongkun();
-        assertEquals("xyyx", hk.makeAbba("x", "y"));
+    public void testMapShareEmptyMap() {
+        Map<String, String> map = new HashMap<>();
+        Map<String, String> result = Hongkun.mapShare(map);
+        assertTrue(result.isEmpty());
     }
 }
