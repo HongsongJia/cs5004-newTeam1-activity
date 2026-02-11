@@ -4,29 +4,54 @@ import static org.junit.Assert.*;
 public class HongsongTest {
 
     @Test
-    public void testHappyNumberExample() {
+    public void testExample1() {
         Hongsong hs = new Hongsong();
-        assertTrue(hs.isHappy(19));
+
+        int[] nums = {2, 7, 11, 15};
+        int target = 9;
+
+        int[] result = hs.twoSum(nums, target);
+
+        assertEquals(0, result[0]);
+        assertEquals(1, result[1]);
     }
 
     @Test
-    public void testSingleDigitHappy() {
+    public void testExample2() {
         Hongsong hs = new Hongsong();
-        assertTrue(hs.isHappy(1));
-        assertTrue(hs.isHappy(7));
+
+        int[] nums = {3, 2, 4};
+        int target = 6;
+
+        int[] result = hs.twoSum(nums, target);
+
+        assertEquals(1, result[0]);
+        assertEquals(2, result[1]);
     }
 
     @Test
-    public void testUnhappyNumber() {
+    public void testExample3() {
         Hongsong hs = new Hongsong();
-        assertFalse(hs.isHappy(2));
-        assertFalse(hs.isHappy(4));
-        assertFalse(hs.isHappy(20));
+
+        int[] nums = {3, 3};
+        int target = 6;
+
+        int[] result = hs.twoSum(nums, target);
+
+        assertEquals(0, result[0]);
+        assertEquals(1, result[1]);
     }
 
     @Test
-    public void testLargeNumber() {
+    public void testNoSolution() {
         Hongsong hs = new Hongsong();
-        assertTrue(hs.isHappy(100));
+
+        int[] nums = {1, 2, 3};
+        int target = 10;
+
+        int[] result = hs.twoSum(nums, target);
+
+        assertEquals(0, result[0]);
+        assertEquals(0, result[1]);
     }
 }
