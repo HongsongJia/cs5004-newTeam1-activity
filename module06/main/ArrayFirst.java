@@ -1,7 +1,7 @@
 /**
  * @author Yanshi Liu
  * @version Object-oriented programming
- * Date: 2/18, 2026
+ * @since: 2/18, 2026
  * Course: CS 5004
  * Team: Team 1
  * Module: 06
