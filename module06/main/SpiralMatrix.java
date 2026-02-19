@@ -26,6 +26,8 @@
  * <br>Space Complexity: O(n²)
  *
  * @author HongsongJia
+ * @version Object-orinted programming
+ * Date: 2/18, 2026
  */
 class SpiralMatrix {
     public int[][] generateMatrix(int n) {
