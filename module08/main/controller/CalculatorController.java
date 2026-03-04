@@ -1,22 +1,22 @@
 package controller;
 
-import model.Calculator;
+import model.ICalculator;
 import model.Operation;
-import view.ConsoleView;
+import view.IView;
 
 import java.util.Stack;
 
-public class CalculatorController {
+public class CalculatorController implements IController {
 
-    private ConsoleView view;
-    private Calculator model;
+    private final IView view;
+    private final ICalculator model;
 
-
-    public CalculatorController(ConsoleView view, Calculator model) {
+    public CalculatorController(IView view, ICalculator model) {
         this.view = view;
         this.model = model;
     }
 
+    @Override
     public void run() {
         view.displayWelcome();
         while (true) {
@@ -24,8 +24,13 @@ public class CalculatorController {
             if (operation.equalsIgnoreCase("exit")) {
                 break;
             }
+            if (operation.isBlank()) {
+                continue;
+            }
+
             try {
-                // to add
+                Number result = processOperation(operation);
+                view.displayResult(result);
             } catch (Exception e) {
                 view.displayError(e.getMessage());
             }
@@ -33,58 +38,43 @@ public class CalculatorController {
         view.close();
     }
 
-
-    private Number isNumber(String token) {
+    private Number tryParseNumber(String token) {
         try {
-            Number dbl = Double.parseDouble(token);
-            return dbl;
+            return Double.parseDouble(token);
         } catch (NumberFormatException e) {
             return null;
         }
     }
 
-    private Number processOperation(String operation) {
+    // Prefix expression evaluator: tokens read right-to-left using a stack
+    private Number processOperation(String expression) {
         Stack<Number> numbers = new Stack<>();
+        String[] tokens = expression.trim().split("\\s+");
 
-        String[] tokens = operation.split("\\s+");
-        for (var i = tokens.length - 1; i >= 0; i--) {
+        for (int i = tokens.length - 1; i >= 0; i--) {
             String token = tokens[i];
-            if (token.isEmpty()) {
+            if (token.isEmpty()) continue;
+
+            Number n = tryParseNumber(token);
+            if (n != null) {
+                numbers.push(n);
                 continue;
             }
-            Number number;
-            if ((number = isNumber(token)) != null) {
-                numbers.push(number);
-            } else {
-                Operation op = Operation.getOperation(token);
-                if (op == null) {
-                    throw new IllegalArgumentException("Invalid operation: " + token);
-                }
-                if (numbers.size() < 2) {
-                    throw new IllegalArgumentException("Not enough numbers for operation: " + token);
-                }
-                Number b = numbers.pop();
-                Number a = numbers.pop();
-                Number result;
-                switch (op) {
-                    case ADD:
-                        result = model.add(a, b);
-                        break;
-                    case SUBTRACT:
-                        result = model.subtract(a, b);
-                        break;
-                    case MULTIPLY:
-                        result = model.multiply(a, b);
-                        break;
-                    case DIVIDE:
-                        result = model.divide(a, b);
-                        break;
-                    default:
-                        throw new IllegalArgumentException("Invalid operation: " + token);
-                }
-                numbers.push(result);
+
+            Operation op = Operation.getOperation(token);
+            if (op == null) {
+                throw new IllegalArgumentException("Invalid operation: " + token);
             }
+            if (numbers.size() < 2) {
+                throw new IllegalArgumentException("Not enough numbers for operation: " + token);
+            }
+
+            Number a = numbers.pop();
+            Number b = numbers.pop();
+            Number result = model.invokeOperation(op, a, b);
+            numbers.push(result);
         }
+
         if (numbers.size() != 1) {
             throw new IllegalArgumentException("Invalid expression");
         }

@@ -1,14 +1,11 @@
 package view;
 
-import model.Operation;
-
-import java.util.Arrays;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
-public class ConsoleView {
+public class ConsoleView implements IView {
+
     private static final String PROMPT = "> ";
-    private static final String ERROR = "Error: ";
+    private static final String ERROR_PREFIX = "Error: ";
 
     private final Scanner scanner;
 
@@ -16,28 +13,34 @@ public class ConsoleView {
         this.scanner = new Scanner(System.in);
     }
 
+    @Override
     public void displayWelcome() {
-        System.out.println("Welcome to the calculator");
-        System.out.println("Allowed operations: " + Arrays.stream(Operation.values())
-                .map(Operation::getSymbol)
-                .collect(Collectors.joining(" ")));
-        System.out.println("Type exit to close calculator.");
+        System.out.println("Prefix Calculator");
+        System.out.println("Enter expressions like: + 1 2  or  * + 1 2 3");
+        System.out.println("Type 'exit' to quit.");
     }
 
-    public void displayError(String message) {
-        System.out.println(ERROR + message);
+    @Override
+    public String getClientOperation() {
+        System.out.print(PROMPT);
+        if (!scanner.hasNextLine()) {
+            return "exit";
+        }
+        return scanner.nextLine().trim();
     }
 
+    @Override
     public void displayResult(Number result) {
         System.out.println(result);
     }
 
-    public String getClientOperation() {
-        System.out.print(PROMPT);
-        return scanner.nextLine();
+    @Override
+    public void displayError(String message) {
+        System.out.println(ERROR_PREFIX + message);
     }
 
+    @Override
     public void close() {
-        System.out.println("Goodbye!");
+        scanner.close();
     }
 }
