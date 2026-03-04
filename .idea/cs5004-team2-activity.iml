@@ -7,6 +7,8 @@
       <sourceFolder url="file://$MODULE_DIR$/module06/test" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/module07/main" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/module07/test" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/module08/main" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/module08/test" isTestSource="true" />
     </content>
     <orderEntry type="library" exported="" name="lib1" level="project" />
     <orderEntry type="inheritedJdk" />
