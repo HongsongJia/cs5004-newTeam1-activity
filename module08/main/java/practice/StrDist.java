@@ -4,12 +4,12 @@ package java.practice;
  * @author Bolin Zeng
  * @version  (Object-oriented programming)
  *
- * Date: 2/24, 2026
+ * Date: 3/11, 2026
  * Course: CS 5004
  * Team: Team 1
  * Module: 08
  *
- * Practice Problem: CodingBat - Recursion-2 > strDist
+ * Practice Problem: CodingBat - Recursion-1 > strDist
  *
  * Problem Description:
  * Given a string and a non-empty substring sub, compute recursively the largest
